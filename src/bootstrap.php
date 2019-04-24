@@ -1,13 +1,11 @@
 <?php
-defined('ZIKI') or die('Direct access not permitted!');
-
-// Autoloading.
-require ZIKI_BASE_PATH .'/vendor/autoload.php';
+// Load our autoloader
+require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/classes/api/Router.php';
+require_once __DIR__.'/classes/api/Request.php';
+require_once __DIR__ . '/classes/Twig.php';
+// require_once __DIR__.'/router.php';
 
 $logger = new Monolog\Logger('Ziki');
-$logger->pushHandler(new Monolog\Handler\StreamHandler( ZIKI_BASE_PATH . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . 'ziki.log'));
+$logger->pushHandler(new Monolog\Handler\StreamHandler( __DIR__ . DIRECTORY_SEPARATOR . 'storage' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . 'app.log'));
 Monolog\ErrorHandler::register($logger);
-
-$ziki = new Ziki\Foundation(ZIKI_BASE_PATH, $logger);
-
-return $ziki;

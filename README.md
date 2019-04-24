@@ -1,63 +1,41 @@
 # ziki
+The New Ziki
 
-ziki is a blogging service like wordpress it runs on your own self-hosted domain. Think of it as a distributed social network.
-It does not run on a url like `medium.com/markessien` or `wordpress.com/markessien`. I can install ziki on my own personal domain and set up my own blog.
+<p>A blogging network like medium - but it runs on your own self-hosted domain. </br>
+It does not run on a url like medium.com/markessien, but I install it on markessien.com. </br>
+When I am there and logged in, I can write blog posts and publish them. </br>
+Others using the same software can <b>follow</b> my own blog using RSS. </br>
+You see what others are writing on your own timeline. </br>
+I can comment on my own timeline, and it shows up on your own website. </br>
+I can select various themes for the blog, though they all follow the same general look and feel.</p>
 
-I can install ziki on `markessien.com` or on a custom domain of my choosing.
 
-Ziki relies on the use of two terms:
+This app is created <b>without a database</b>
+The posts are stored as markdown files.
 
-`Owner` and `Guest`
 
-## The owner
-This is the person that downloaded ziki and installed it on their domain. The owner has permission to view their timeline, write and publish posts and follow other `ziki` users' posts using RSS. The owner only has an additional link called `timeline` which is private. The owner can choose to make their timeline public.
 
-## The Guest
 
-This is the person visiting a `ziki` site. When on the site, the users can view posts by the site [owner](##The-owner). If a guest wants to interact with the posts i.e like or comment they can login to the site to access these privilleges. If the site uses [disqus](https://disqus.com/) for commenting, the guest has no access to native login only the site [owner](##The-owner) does.
+### FOR PR do this: 
 
-### Contributing
+### TITLE OF PR
 
-- Make sure you have setup your `PHP` development environment
-- Ensure `composer` is setup on your development environment
-- Ensure you have the current lts version of [NodeJs](https://nodejs.org)
-- Fork your own copy of the repository
-- Clone it
-- Run `composer install --no-dev`
-- Run `npm install`, `npm run assets -- <theme-name>` and then `npm start -- <theme-name>`.
-  For the current theme, these commands would be `npm run assets -- ghost` and then `npm start -- ghost`.
-- Go to `localhost:8000` on your browser and you are good to go
+Forum fragment Webview
+### PURPOSE OF PR
 
-#### The Pull Request Template:
+To Implement a webview for the forum chat.
+### FEATURES IMPLEMENTED
 
-```
-PR Tittle : #[STORY_ID] Story description
+Forum fragment
+OnbackPressed between fragments
 
-#### What does this PR do?
-#### Description of Task to be completed?
-#### How should this be manually tested?
-#### Any background context you want to provide?
-#### What are the relevant pivotal tracker stories?
-#### Screenshots (if appropriate)
-#### Questions/Comments:
-```
+### HOW TO TEST
 
-#### Pull Request Example:
+When a user click on the forum button the forum fragment web view should be open
+when the back button is clicked, the today fragment should be on the screen
+Also when the back button is clicked again the user should be able to exit the app.
 
-```
-#### What does this PR do?
-* It creates the landing page
-#### Description of Task to be completed?
-* Landing page `index.html` is created
-* Styling is added to `styles.css`
-#### How should this be manually tested?
-* Open the site on your browser
-* Type localhost/home
-* You should see the landing page
-#### Any background context you want to provide?
-* use gulp to automate builds
-#### What are the relevant pivotal tracker stories?
-[#123456](https://www.pivotaltracker.com/story/show/123456)
-#### Screenshots (if appropriate)
-#### Questions/Comments:
-```
+### PIVOTAL TRACKER STORY LINK
+https://www.pivotaltracker.com/n/projects/your ticket id
+
+### Add page screen shot from your local
