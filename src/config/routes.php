@@ -17,7 +17,7 @@ Route::get('/', function($request) {
 });
 
 
-Route::get('/blog-details/{id}', function($request, $id) {
+Route::get('stay/{id}', function($request, $id) {
     $directory = "./storage/contents/";
     $ziki = new Ziki\Core\Document($directory);
    $result = $ziki->getEach($id);
@@ -35,8 +35,9 @@ Route::post('/publish', function($request) {
     $data = $request->getBody();
     $title = $data['title'];
     $body = $data['postVal'];
+    $tags = $data['tags'];
     $ziki = new Ziki\Core\Document($directory);
-    $result = $ziki->create($title, $body);
+    $result = $ziki->create($title, $body,$tags);
     return $this->template->render('timeline.html', ['ziki' => $result]);
 });
 
@@ -61,7 +62,7 @@ Route::get('/profile', function($request) {
     return $this->template->render('profile.html');
 });
 
-Route::get('/subscriptions', function($request) {
+Route::post('/subscriptions', function($request) {
     return $this->template->render('subscriptions.html');
 });
 
@@ -87,4 +88,14 @@ Route::get('/about', function($request) {
 
 Route::get('/download', function($request) {
     return $this->template->render('download.html');
+});
+
+Route::get('/auth/{provider}/{token}', function($request, $token){
+    $user = new Ziki\Core\Auth();
+    $check = $user->validateAuth($token);
+    if($check){
+        var_dump($check);
+        die();
+    }
+    return $this->redirectToRoute("/timeline");
 });
