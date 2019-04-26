@@ -84,3 +84,7 @@ Route::get('/drafts', function($request) {
 Route::get('/about', function($request) {
     return $this->template->render('about-us.html');
 });
+
+Route::get('/download', function($request) {
+    return $this->template->render('download.html');
+});
